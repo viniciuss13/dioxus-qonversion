@@ -2,6 +2,13 @@ name: Test
 
 on:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      run_ios_remote_config:
+        description: "Run the real iOS SDK test against Jusfine - Rust Tests"
+        type: boolean
+        required: true
+        default: false
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}
